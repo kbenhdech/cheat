@@ -1,0 +1,9 @@
+Disable la modification  d'un select
+====================================
+
+$(".disabledSelect").attr('unselectable', 'on')
+  .css('user-select', 'none')
+  .css('MozUserSelect', 'none')
+  .on('selectstart', false)
+  .on('mousedown', false)
+  .css('UserSelect','none')

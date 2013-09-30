@@ -1,0 +1,8 @@
+Calcul du nombre de caractères dans un textarea
+===============================================
+
+@charNumberTextArea: (idTextArea, idCharNumber) ->
+  charNumber = $(idTextArea).val().length
+  $(idCharNumber).text(charNumber)
+  $(idTextArea).keyup ->
+    $(idCharNumber).text(this.value.length)

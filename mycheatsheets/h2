@@ -1,0 +1,3 @@
+MODE=PostgreSQL
+
+AUTO_SERVER=TRUE

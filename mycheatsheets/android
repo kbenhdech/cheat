@@ -1,0 +1,17 @@
+Terms
+=====
+AVD = Android Virtual Device
+DDMS = Dalvik Debug Monitor Server
+ADB = Android Debug Bridge
+
+AVD
+===
+emulator -avd <avdName>
+
+ADB
+===
+http://developer.android.com/tools/help/adb.html
+
+Andoid versions
+===============
+4.4 = KitKat

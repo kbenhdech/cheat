@@ -1,0 +1,21 @@
+Debug in test
+=============
+Keys.fork in (Test) := true,
+javaOptions in (Test) += "-Xdebug",
+javaOptions in (Test) += "-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=9998"
+
+requireJs
+=========
+js : define [], () ->
+       class Utils
+         @functionName: () ->
+
+Build.scala : requireJs += "/path/file.js"
+template : @helper.requireJs(core = routes.Assets.at("javascripts/require.js").url,
+                             module = routes.Assets.at("javascripts/path/file").url)
+js : require ["/assets/javascripts/utils.js"], (utils) -> 
+
+Formulaire
+==========
+
+
