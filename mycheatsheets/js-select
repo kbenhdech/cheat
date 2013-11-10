@@ -1,9 +1,42 @@
 Disable la modification  d'un select
 ====================================
 
-$(".disabledSelect").attr('unselectable', 'on')
+$(".disabledSelect")
+  .attr('unselectable', 'on')
   .css('user-select', 'none')
   .css('MozUserSelect', 'none')
   .on('selectstart', false)
   .on('mousedown', false)
   .css('UserSelect','none')
+
+Select avec select2 et appel Ajax
+@searchAddress = (id) ->
+  $(id).select2
+    placeholder: Messages('js.select2.ville.search')
+    minimumInputLength: 3
+    allowClear: true
+    ajax:
+      url: jsRoutes.controllers.api.AddressesApi.findByTerm().absoluteURL()
+      dataType: "json"
+      quietMillis: 100
+      data: (term, page) ->
+        q: term
+      results: (data, page) ->
+        results: data
+    formatResult: (city) ->
+      city.name
+    formatSelection: (city) ->
+      city.name
+    initSelection: (element, callback) ->
+      id = $(element).val()
+      jsRoutes.controllers.api.AddressesApi.findById(id).ajax
+        context: this
+        type: "GET"
+        dataType: "json"
+        success: (city) ->
+          callback(city)
+  # Technique pour corriger un bug d'affichage avec bootstrap3 (box dans une box)
+  # En complément de modifications css
+  $(id).on "change", ->
+    $container = $(this).prev(".select2-container")
+    $container.height $container.children(".select2-choices").height()

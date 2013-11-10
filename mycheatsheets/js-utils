@@ -1,0 +1,12 @@
+Déclencher une action après un certains temps
+=============================================
+    
+@fireActionAfterTime = (id, time, callBackAction) ->
+  $(id).bind "input keyup", ->
+    $this = $(this)
+    delay = time # nombre de millisecondes avant de déclencher l'action
+    clearTimeout $this.data("timer")
+    $this.data "timer", setTimeout(->
+      $this.removeData "timer"
+      callBackAction()
+    , delay)

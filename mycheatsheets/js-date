@@ -1,27 +1,27 @@
 dateTimePicker
 ==============
  
-   # datetimepicker - Date
-    @datetimepickerDate: (id) ->
-      $(id).datetimepicker
-        format : 'dd/mm/yyyy'
-        daysOfWeekDisabled: [0,6]
-        startView: 2
-        minView: 2
-        maxView: 3
-        language: "fr"
-        weekStart: 1
-        autoclose: true
+# datetimepicker - Date
+@datetimepickerDate: (id) ->
+  $(id).datetimepicker
+    format : 'dd/mm/yyyy'
+    daysOfWeekDisabled: [0,6]
+    startView: 2
+    minView: 2
+    maxView: 3
+    language: "fr"
+    weekStart: 1
+    autoclose: true
 
-    # datetimepicker - Time
-    @datetimepickerTime: (id) ->
-      $(id).datetimepicker
-        format : 'hh:ii'
-        daysOfWeekDisabled: [0,6]
-        startView: 1
-        minView: 0
-        maxView: 1
-        language: "fr"
-        weekStart: 1
-        autoclose: true
-        minuteStep: 15
+# datetimepicker - Time
+@datetimepickerTime: (id) ->
+  $(id).datetimepicker
+    format : 'hh:ii'
+    daysOfWeekDisabled: [0,6]
+    startView: 1
+    minView: 0
+    maxView: 1
+    language: "fr"
+    weekStart: 1
+    autoclose: true
+    minuteStep: 15

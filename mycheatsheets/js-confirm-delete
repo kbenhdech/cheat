@@ -1,4 +1,11 @@
-Fenêtre modal de confirmation de suppression
-============================================
+Fenêtre modal de confirmation 
+=============================
 
-A compléter.
+Nécessite la librairie JS bootboxjs.
+
+@confirmDialog = (id) ->
+  $(this).on "submit", id, (event) ->
+    currentForm = this
+    event.preventDefault()
+    bootbox.confirm Messages('confirm.delete.question'), (result) ->
+      currentForm.submit() if result
